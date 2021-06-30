@@ -2,6 +2,9 @@ pipeline{
     agent{
         label "dev"
     }
+    tools{
+        maven 'maven381'
+    }
     stages{
         stage('checkout'){
             steps{

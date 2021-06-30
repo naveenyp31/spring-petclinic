@@ -23,5 +23,12 @@ pipeline{
                 junit allowEmptyResults: true, testResults: '/target/surefire-reports/*.xml'
             }
         }
+        stage('Quality Gate status check'){
+            steps{
+                withSonarQubeEnv('sonar7.6'){
+                   sh 'mvn sonar:sonar'
+                }
+            }
+        }
     }
 }

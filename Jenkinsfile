@@ -30,5 +30,23 @@ pipeline{
                 }
             }
         }
+        stage('upload artifact to repo'){
+            steps{
+                nexusArtifactUploader artifacts: 
+                [[
+                    artifactId: 'spring-petclinic', 
+                    classifier: '', 
+                    file: 'target/petclinic-4.2.6-SNAPSHOT.war', 
+                    type: 'war'
+                ]], 
+                credentialsId: 'nexus-artfact', 
+                groupId: 'org.springframework.samples', 
+                nexusUrl: '65.0.55.77:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'petclinic-snapshot', 
+                version: '4.2.6-SNAPSHOT'
+            }
+        }
     }
 }

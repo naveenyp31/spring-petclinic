@@ -36,7 +36,7 @@ pipeline{
                 [[
                     artifactId: 'spring-petclinic', 
                     classifier: '', 
-                    file: 'target/petclinic-4.2.6-SNAPSHOT.war', 
+                    file: 'target/petclinic.war', 
                     type: 'war'
                 ]], 
                 credentialsId: 'nexus-artfact', 
